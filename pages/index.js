@@ -1,14 +1,12 @@
 import Head from 'next/head'
 import Image from 'next/image'
-// import LocomotiveScroll from 'locomotive-scroll'
 import styles from '../styles/Home.module.css'
 import Intro from '../components/intro';
 import WhatDo from '../components/whatDo';
 
 export default function Home() {
-  // const scroll = new LocomotiveScroll();
   return (
-    <div className={styles.container}>
+    <div data-scroll-section className={styles.container}>
       <Head>
         <title>Creative Dev - Adam O&apos;Neill</title>
         <meta name="description" content="I bring websites to life." />

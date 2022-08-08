@@ -12,7 +12,8 @@
     "locomotive-scroll": "^4.1.4",
     "next": "12.2.3",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-locomotive-scroll": "^0.2.2"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.8",
