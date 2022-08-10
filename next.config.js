@@ -4,4 +4,8 @@ const nextConfig = {
   swcMinify: true,
 }
 
-module.exports = nextConfig
+const withTM = require('next-transpile-modules')(['letterizejs', 'animejs']); // pass the modules you would like to see transpiled
+
+module.exports = withTM(nextConfig);
+
+// module.exports = nextConfig

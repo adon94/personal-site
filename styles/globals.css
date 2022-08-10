@@ -28,3 +28,7 @@ a {
     background: black;
   }
 }
+
+.animate-me span {
+  display: inline-block;
+}
