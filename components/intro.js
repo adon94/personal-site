@@ -15,8 +15,8 @@ function AnimatedText() {
           display: inline-block;
         }
         .animate-me {
-          /* text-transform: uppercase; */
-          letter-spacing: 3px;
+          text-transform: uppercase;
+          letter-spacing: 0px;
           margin: 0;
         }
         @media screen and (min-width: 900px) {
@@ -52,13 +52,13 @@ export default function Intro() {
           scale: 0.8,
         })
         .add({
-          letterSpacing: isMobile ? '5px' : '10px'
+          letterSpacing: isMobile ? '2px' : '10px'
         })
         .add({
           scale: 1
         })
         .add({
-          letterSpacing: isMobile ? '3px' : '6px'
+          letterSpacing: isMobile ? '0px' : '6px'
         });
     }
   }, [])
