@@ -35,8 +35,6 @@ export default function Intro() {
       const test = new Letterize({
         targets: ".animate-me"
       });
-      console.log('0', test.list[0].length)
-      console.log('1', test.list.length)
 
       const animation = anime.timeline({
         targets: test.listAll,
@@ -62,34 +60,11 @@ export default function Intro() {
         });
     }
   }, [])
+  const arrEg = ['lol', 'another lol']
   
   return (
     <div className="h-screen container flex flex-col justify-center content-center">
-      <AnimatedText />
-      <AnimatedText />
-      <AnimatedText />
-      <AnimatedText />
-      <AnimatedText />
-      <AnimatedText />
-      <AnimatedText />
-      <AnimatedText />
-      <AnimatedText />
-      <AnimatedText />
-      <AnimatedText />
-      <AnimatedText />
-      <AnimatedText />
-      <AnimatedText />
-      <AnimatedText />
-      {/* <div className="text-3xl md:text-8xl text-left my-5">
-        <span>Fullstack</span>
-        <br></br>
-        <span>Dev</span>
-      </div>
-      <h1 data-scroll data-scroll-speed="8" data-scroll-position="top" className="text-3xl md:text-8xl text-right my-5 self-end">
-        <span>Adam</span>
-        <br></br>
-        <span>O&apos;Neill</span>
-      </h1> */}
+      {[...Array(14)].map((value, index) => <AnimatedText key={index} />)}
     </div>
   )
 }
