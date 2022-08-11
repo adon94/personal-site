@@ -1,7 +1,7 @@
 export default function WhatDo() {
   return (
     <div className="container h-screen flex justify-center">
-      <p data-scroll data-scroll-speed="6" className="is-inview c-header_title_line text-5xl md:text-9xl text-left my-5">
+      <p data-scroll data-scroll-speed="6" className="text-5xl md:text-9xl text-left my-5">
         <span>I support</span>
         <br></br>
         <span>designers and</span>
@@ -10,8 +10,8 @@ export default function WhatDo() {
         <br></br>
         <span>fullstack</span>
         <br></br>
-        <span>development</span>
+        <span>development.</span>
       </p>
     </div>
-  )
+  );
 }
