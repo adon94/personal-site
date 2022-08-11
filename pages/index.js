@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div data-scroll-section className={styles.container}>
       <Head>
-        <title>Creative Dev - Adam O&apos;Neill</title>
+        <title>Fullstack Dev - Adam O&apos;Neill</title>
         <meta name="description" content="I bring websites to life." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
