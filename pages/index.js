@@ -8,8 +8,8 @@ export default function Home() {
   return (
     <div data-scroll-section className={styles.container}>
       <Head>
-        <title>Fullstack Dev - Adam O&apos;Neill</title>
-        <meta name="description" content="I bring websites to life." />
+        <title>Front End Dev - Adam O&apos;Neill</title>
+        <meta name="description" content="Front end developer for hire." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

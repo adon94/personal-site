@@ -7,7 +7,7 @@ function AnimatedText() {
   return (
     <>
     <div className="text-1xl md:text-4xl text-center animate-me">
-      fullstack_dev•adam_o_neill
+      front_end_dev•adam_o_neill
     </div>
 
     <style jsx>{`
