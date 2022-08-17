@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <Script
         strategy="lazyOnload"
-        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
       />
       <Script strategy="lazyOnload" id="0">
         {`
@@ -20,7 +20,7 @@ function MyApp({ Component, pageProps }) {
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
           
-            gtag('config', '${process.env.GOOGLE_ANALYTICS}');
+            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}');
           `}
       </Script>
       <LocomotiveScrollProvider
