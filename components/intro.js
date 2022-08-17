@@ -18,10 +18,12 @@ function AnimatedText() {
           text-transform: uppercase;
           letter-spacing: 0px;
           margin: 0;
+          transform: scale(1);
         }
         @media screen and (min-width: 900px) {
           .animate-me {
             letter-spacing: 6px;
+            transform: none;
           }
         }
       `}</style>
@@ -63,7 +65,7 @@ export default function Intro() {
   const arrEg = ['lol', 'another lol']
   
   return (
-    <div className="h-screen container flex flex-col justify-center content-center">
+    <div className="h-screen w-screen flex flex-col justify-center content-center">
       {[...Array(14)].map((value, index) => <AnimatedText key={index} />)}
     </div>
   )
