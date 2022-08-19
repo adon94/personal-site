@@ -23,7 +23,7 @@ export default function Contact() {
         }
 
         a::after {
-          content: '';
+          content: "";
           position: absolute;
           width: 100%;
           transform: scaleX(0);
@@ -38,8 +38,8 @@ export default function Contact() {
         a:hover::after {
           transform: scaleX(1);
           transform-origin: bottom left;
-        } 
+        }
       `}</style>
     </>
-  )
+  );
 }

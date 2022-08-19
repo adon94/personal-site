@@ -1,16 +1,16 @@
-import { useEffect } from 'react';
-import Letterize from 'letterizejs'
-import anime from 'animejs/lib/anime.es.js';
-import { isMobile } from 'react-device-detect';
+import { useEffect } from "react";
+import Letterize from "letterizejs";
+import anime from "animejs/lib/anime.es.js";
+import { isMobile } from "react-device-detect";
 
 function AnimatedText() {
   return (
     <>
-    <div className="text-1xl md:text-4xl text-center animate-me">
-      front_end_dev•adam_o_neill
-    </div>
+      <div className="text-1xl md:text-4xl text-center animate-me">
+        front_end_dev•adam_o_neill
+      </div>
 
-    <style jsx>{`
+      <style jsx>{`
         .animate-me span {
           display: inline-block;
         }
@@ -33,18 +33,18 @@ function AnimatedText() {
 
 export default function Intro() {
   useEffect(() => {
-    if(typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       const test = new Letterize({
-        targets: ".animate-me"
+        targets: ".animate-me",
       });
 
       const animation = anime.timeline({
         targets: test.listAll,
         delay: anime.stagger(100, {
           grid: [test.list[0].length, test.list.length],
-          from: 'center'
+          from: "center",
         }),
-        loop: true
+        loop: true,
       });
 
       animation
@@ -52,21 +52,22 @@ export default function Intro() {
           scale: 0.8,
         })
         .add({
-          letterSpacing: isMobile ? '2px' : '10px'
+          letterSpacing: isMobile ? "2px" : "10px",
         })
         .add({
-          scale: 1
+          scale: 1,
         })
         .add({
-          letterSpacing: isMobile ? '0px' : '6px'
+          letterSpacing: isMobile ? "0px" : "6px",
         });
     }
-  }, [])
-  const arrEg = ['lol', 'another lol']
-  
+  }, []);
+
   return (
     <div className="h-screen w-screen flex flex-col justify-center content-center">
-      {[...Array(14)].map((value, index) => <AnimatedText key={index} />)}
+      {[...Array(14)].map((value, index) => (
+        <AnimatedText key={index} />
+      ))}
     </div>
-  )
+  );
 }

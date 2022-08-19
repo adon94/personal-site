@@ -1,8 +1,8 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import Intro from '../components/intro';
-import WhatDo from '../components/whatDo';
-import Contact from '../components/contact';
+import Head from "next/head";
+import styles from "../styles/Home.module.css";
+import Intro from "../components/intro";
+import WhatDo from "../components/whatDo";
+import Contact from "../components/contact";
 
 export default function Home() {
   return (
@@ -39,5 +39,5 @@ export default function Home() {
         }
       `}</style>
     </div>
-  )
+  );
 }
