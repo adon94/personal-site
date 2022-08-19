@@ -33,6 +33,6 @@ a {
   display: inline-block;
 }
 
-.email:hover {
+/* .email:hover {
   cursor: url("/copyClick.svg") 42.5 42.5, pointer;
-}
+} */
