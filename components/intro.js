@@ -6,8 +6,8 @@ import { isMobile } from "react-device-detect";
 function AnimatedText() {
   return (
     <>
-      <div className="text-1xl md:text-4xl text-center animate-me">
-        front_end_dev•adam_o_neill
+      <div className="text-1xl md:text-2xl text-center animate-me">
+        front_end•adam_o&apos;neill
       </div>
 
       <style jsx>{`
@@ -65,7 +65,7 @@ export default function Intro() {
 
   return (
     <div className="h-screen w-screen flex flex-col justify-center content-center">
-      {[...Array(14)].map((value, index) => (
+      {[...Array(13)].map((value, index) => (
         <AnimatedText key={index} />
       ))}
     </div>

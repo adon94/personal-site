@@ -3,6 +3,7 @@ import styles from "../styles/Home.module.css";
 import Intro from "../components/intro";
 import WhatDo from "../components/whatDo";
 import Contact from "../components/contact";
+import Portfolio from "../components/portfolio";
 
 export default function Home() {
   return (
@@ -16,28 +17,9 @@ export default function Home() {
       <main className={styles.main}>
         <Intro />
         <WhatDo />
+        <Portfolio />
         <Contact />
       </main>
-
-      <footer className={styles.footer}>
-        <p>
-          Created on&nbsp;
-          <a
-            href="https://nextjs.org/"
-            target="_blank"
-            rel="noreferrer"
-            className="next-link"
-          >
-            Next.js
-          </a>
-          &nbsp;by Adam O&apos;Neill.
-        </p>
-      </footer>
-      <style jsx>{`
-        .next-link {
-          display: inline-block;
-        }
-      `}</style>
     </div>
   );
 }
