@@ -23,7 +23,7 @@ export default function Portfolio() {
         <div className="border-4 mb-4 md:mb-0 hover:scale-105 transition-all">
           <a href="https://phasecraft.io/" target="_blank" rel="noreferrer">
             <Image
-              src="/phasecraft.png"
+              src="/phasecraft-md.png"
               height={228}
               alt="Phasecraft homepage"
               width={356}
