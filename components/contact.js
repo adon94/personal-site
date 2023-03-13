@@ -2,16 +2,20 @@ import StyledLink from "./styledLink";
 
 export default function Contact() {
   return (
-    <div className="container h-screen flex flex-col justify-center">
-      <p className="text-1xl md:text-2xl text-center my-5">
-        Let&apos;s connect:
-      </p>
-      <StyledLink
-        href="mailto:hello@adamcodes.io"
-        className="text-3xl md:text-7xl text-center my-5"
-      >
-        hello@adamcodes.io
-      </StyledLink>
+    <div className="flex items-center justify-center flex-1 w-full h-screen text-black">
+      <div>
+        <p className="my-5 text-xl text-center md:text-2xl font-pacifico">
+          Let&apos;s connect:
+        </p>
+        <div className="p-5 bg-white border-2 border-black rounded-3xl w-fit md:p-20">
+          <StyledLink
+            href="mailto:hello@adamcodes.io"
+            className="my-5 text-3xl font-bold text-center md:text-7xl"
+          >
+            hello@adamcodes.io
+          </StyledLink>
+        </div>
+      </div>
     </div>
   );
 }
