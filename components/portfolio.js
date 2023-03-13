@@ -3,32 +3,30 @@ import StyledLink from "./styledLink";
 
 export default function Portfolio() {
   return (
-    <div className="container md:h-screen flex flex-col justify-center md:px-24">
-      <h3 className="text-2xl md:text-md font-light my-6 text-gray-300">
-        Public projects
-      </h3>
-      <div className="flex flex-col-reverse md:flex-row md:justify-between">
-        <div>
-          <h4
-            data-scroll
-            // data-scroll-speed={scrollSpeed}
-            className="text-3xl md:text-4xl text-left mb-4"
-          >
-            <StyledLink href="https://phasecraft.io/">
-              Phasecraft company website
-            </StyledLink>
-          </h4>
-          <code>React, Gatsby.js, styled-components</code>
-        </div>
-        <div className="border-4 mb-4 md:mb-0 hover:scale-105 transition-all">
-          <a href="https://phasecraft.io/" target="_blank" rel="noreferrer">
-            <Image
-              src="/phasecraft-md.png"
-              height={228}
-              alt="Phasecraft homepage"
-              width={356}
-            />
-          </a>
+    <div className="w-full px-4 py-24 text-black md:px-24">
+      <div className="flex flex-col justify-center mx-auto w-fit">
+        <h3 className="mb-6 text-2xl font-light font-pacifico md:text-md">
+          My work
+        </h3>
+        <div className="flex flex-col-reverse px-4 py-5 bg-white border-2 border-black rounded-lg md:py-10 md:px-7 md:flex-row md:justify-between">
+          <div>
+            <h4 className="mb-4 text-3xl text-left md:text-4xl">
+              <StyledLink href="https://phasecraft.io/">
+                Phasecraft company website
+              </StyledLink>
+            </h4>
+            <code>React, Gatsby.js, styled-components</code>
+          </div>
+          <div className="mb-4 transition-all md:ml-36 md:mb-0 hover:scale-105">
+            <a href="https://phasecraft.io/" target="_blank" rel="noreferrer">
+              <Image
+                src="/phasecraft-md.png"
+                height={228}
+                alt="Phasecraft homepage"
+                width={356}
+              />
+            </a>
+          </div>
         </div>
       </div>
     </div>

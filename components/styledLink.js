@@ -24,7 +24,7 @@ export default function StyledLink({ href, className, children }) {
           height: 8%;
           bottom: -15%;
           left: 0;
-          background-color: #ffffff;
+          background-color: #000;
           transform-origin: bottom right;
           transition: transform 0.25s ease-out;
         }

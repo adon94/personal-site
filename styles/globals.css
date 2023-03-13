@@ -9,8 +9,8 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  color: white;
-  background: black;
+  /* color: white; */
+  background: #ffe9cc;
 }
 
 a {
@@ -24,6 +24,12 @@ a {
 
 .animate-me span {
   display: inline-block;
+}
+
+.bg-texture {
+  background-color: #ffe9cc;
+  background-image: url("/patterns/handmadepaper.png");
+  background-blend-mode: multiply;
 }
 
 /* .email:hover {

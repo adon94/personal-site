@@ -6,8 +6,8 @@ import { isMobile } from "react-device-detect";
 function AnimatedText() {
   return (
     <>
-      <div className="text-1xl md:text-2xl text-center animate-me">
-        front_end•adam_o&apos;neill
+      <div className="font-mono font-thin text-center text-1xl md:text-2xl animate-me">
+        Front•End•Developer
       </div>
 
       <style jsx>{`
@@ -40,7 +40,7 @@ export default function Intro() {
 
       const animation = anime.timeline({
         targets: test.listAll,
-        delay: anime.stagger(100, {
+        delay: anime.stagger(200, {
           grid: [test.list[0].length, test.list.length],
           from: "center",
         }),
@@ -64,10 +64,18 @@ export default function Intro() {
   }, []);
 
   return (
-    <div className="h-screen w-screen flex flex-col justify-center content-center">
-      {[...Array(13)].map((value, index) => (
-        <AnimatedText key={index} />
-      ))}
+    <div className="flex flex-col justify-between w-screen h-screen p-10 text-black">
+      <h1 className="self-center text-3xl md:self-start font-pacifico">
+        Adam O&apos;Neill
+      </h1>
+      <div className="">
+        {[...Array(13)].map((value, index) => (
+          <AnimatedText key={index} />
+        ))}
+      </div>
+      <h1 className="self-center text-3xl md:self-end font-pacifico">
+        Available for hire
+      </h1>
     </div>
   );
 }
