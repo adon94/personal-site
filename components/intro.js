@@ -35,20 +35,20 @@ function useWindowSize() {
 function AnimatedText() {
   return (
     <>
-      <div className="font-mono font-thin text-center text-1xl md:text-2xl animate-me">
+      <div className="font-mono font-thin text-center text-white text-1xl md:text-2xl animate-me">
         Front•End•Developer
       </div>
 
       <style jsx>{`
-        .animate-me span {
-          display: inline-block;
-        }
         .animate-me {
           text-transform: uppercase;
-          letter-spacing: 0px;
+          letter-spacing: 1px;
           margin: 0;
           transform: scale(1);
         }
+        /* .animate-me span {
+          background-color: hsla(188, 100%, 54%, 1);
+        } */
         @media screen and (min-width: 900px) {
           .animate-me {
             letter-spacing: 6px;
@@ -75,6 +75,7 @@ export default function Intro() {
           grid: [test.list[0].length, test.list.length],
           from: "center",
         }),
+        // backgroundColor: ["hsla(188, 100%, 54%, 1)", "hsla(299, 100%, 54%, 1)"],
         loop: true,
       });
 
@@ -83,24 +84,25 @@ export default function Intro() {
           scale: 0.8,
         })
         .add({
-          letterSpacing: isMobile ? "2px" : "10px",
+          letterSpacing: isMobile ? "3px" : "10px",
+          borderRadius: 5,
         })
         .add({
           scale: 1,
         })
         .add({
-          letterSpacing: isMobile ? "0px" : "6px",
+          letterSpacing: isMobile ? "1px" : "6px",
         });
     }
   }, [size, isMobile]);
 
   if (!size.width)
     return (
-      <div className="flex flex-col justify-between w-screen h-screen p-10 text-black"></div>
+      <div className="flex flex-col justify-between w-screen h-screen p-10 text-white"></div>
     );
 
   // set num of animated rows based on screen size
-  const numRows = isMobile ? 7 : 13;
+  const numRows = isMobile ? 8 : 13;
 
   return (
     <div className="flex flex-col justify-between w-screen h-screen p-10 text-black">
@@ -123,6 +125,9 @@ export default function Intro() {
       >
         Available for hire
       </h1>
+      <div className="absolute bottom-0 -translate-x-1/2 left-1/2">
+        <p className="text-md md:text-3xl animate-bounce">↓</p>
+      </div>
     </div>
   );
 }
