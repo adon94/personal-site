@@ -1,7 +1,36 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Letterize from "letterizejs";
 import anime from "animejs/lib/anime.es.js";
-import { isMobile } from "react-device-detect";
+
+function useWindowSize() {
+  // Initialize state with undefined width/height so server and client renders match
+  const [windowSize, setWindowSize] = useState({
+    width: undefined,
+    height: undefined,
+  });
+
+  useEffect(() => {
+    // only execute all the code below in client side
+    // Handler to call on window resize
+    function handleResize() {
+      // Set window width/height to state
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    }
+
+    // Add event listener
+    window.addEventListener("resize", handleResize);
+
+    // Call handler right away so state gets updated with initial window size
+    handleResize();
+
+    // Remove event listener on cleanup
+    return () => window.removeEventListener("resize", handleResize);
+  }, []); // Empty array ensures that effect is only run on mount
+  return windowSize;
+}
 
 function AnimatedText() {
   return (
@@ -32,8 +61,10 @@ function AnimatedText() {
 }
 
 export default function Intro() {
+  const size = useWindowSize();
+  const isMobile = size.width < 768;
   useEffect(() => {
-    if (typeof window !== "undefined") {
+    if (typeof window !== "undefined" && size.width) {
       const test = new Letterize({
         targets: ".animate-me",
       });
@@ -61,19 +92,35 @@ export default function Intro() {
           letterSpacing: isMobile ? "0px" : "6px",
         });
     }
-  }, []);
+  }, [size, isMobile]);
+
+  if (!size.width)
+    return (
+      <div className="flex flex-col justify-between w-screen h-screen p-10 text-black"></div>
+    );
+
+  // set num of animated rows based on screen size
+  const numRows = isMobile ? 7 : 13;
 
   return (
     <div className="flex flex-col justify-between w-screen h-screen p-10 text-black">
-      <h1 className="self-center text-3xl md:self-start font-pacifico">
+      <h1
+        data-aos="slide-right"
+        id="name"
+        className="self-center text-3xl md:self-start font-pacifico"
+      >
         Adam O&apos;Neill
       </h1>
-      <div className="">
-        {[...Array(13)].map((value, index) => (
+      <div data-aos="fade-in" data-aos-delay="500">
+        {[...Array(numRows)].map((value, index) => (
           <AnimatedText key={index} />
         ))}
       </div>
-      <h1 className="self-center text-3xl md:self-end font-pacifico">
+      <h1
+        data-aos="slide-left"
+        data-aos-anchor="#name"
+        className="self-center text-3xl md:self-end font-pacifico"
+      >
         Available for hire
       </h1>
     </div>
