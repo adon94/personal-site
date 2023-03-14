@@ -16,12 +16,12 @@
   "dependencies": {
     "@fontsource/pacifico": "^4.5.9",
     "animejs": "^3.2.1",
+    "aos": "^2.3.4",
     "eslint-config-google": "^0.14.0",
     "letterizejs": "^2.0.1",
     "next": "12.2.3",
     "next-transpile-modules": "^9.0.0",
     "react": "18.2.0",
-    "react-device-detect": "^2.2.2",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
