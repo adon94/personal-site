@@ -35,15 +35,15 @@ function useWindowSize() {
 function AnimatedText() {
   return (
     <>
-      <div className="font-mono font-thin text-center text-white text-1xl md:text-2xl animate-me">
-        Front•End•Developer
+      <div className="font-mono font-thin text-center text-white text-1xl md:text-2xl animate-me bg-black md:bg-transparent w-fit md:w-full">
+        Front_End_Developer
       </div>
 
       <style jsx>{`
         .animate-me {
           text-transform: uppercase;
           letter-spacing: 1px;
-          margin: 0;
+          margin: 3px;
           transform: scale(1);
         }
         /* .animate-me span {
@@ -51,6 +51,7 @@ function AnimatedText() {
         } */
         @media screen and (min-width: 900px) {
           .animate-me {
+            margin: 0;
             letter-spacing: 6px;
             transform: none;
           }
@@ -64,7 +65,7 @@ export default function Intro() {
   const size = useWindowSize();
   const isMobile = size.width < 768;
   useEffect(() => {
-    if (typeof window !== "undefined" && size.width) {
+    if (typeof window !== "undefined" && size.width > 768) {
       const test = new Letterize({
         targets: ".animate-me",
       });
@@ -77,6 +78,7 @@ export default function Intro() {
         }),
         // backgroundColor: ["hsla(188, 100%, 54%, 1)", "hsla(299, 100%, 54%, 1)"],
         loop: true,
+        easing: "easeInOutElastic(1, .6)",
       });
 
       animation
@@ -105,7 +107,7 @@ export default function Intro() {
   const numRows = isMobile ? 8 : 13;
 
   return (
-    <div className="flex flex-col justify-between w-screen h-screen p-10 text-black">
+    <div className="flex flex-col justify-between items-center w-screen h-screen py-16 md:p-10 text-black">
       <h1
         data-aos="slide-right"
         id="name"
