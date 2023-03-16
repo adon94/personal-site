@@ -35,7 +35,7 @@ function useWindowSize() {
 function AnimatedText() {
   return (
     <>
-      <div className="font-mono font-thin text-center text-white text-1xl md:text-2xl animate-me bg-black md:bg-transparent w-fit md:w-full">
+      <div className="font-mono font-thin text-center text-white text-lg md:text-2xl animate-me bg-black md:bg-transparent w-fit md:w-full">
         Front_End_Developer
       </div>
 
@@ -107,28 +107,32 @@ export default function Intro() {
   const numRows = isMobile ? 8 : 13;
 
   return (
-    <div className="flex flex-col justify-between items-center w-screen h-screen py-16 md:p-10 text-black">
+    <div className="flex flex-col justify-between items-center w-screen md:h-screen h-fill py-8 px-5 md:p-10 text-black overflow-hidden">
       <h1
-        data-aos="slide-right"
+        data-aos={!isMobile && "slide-right"}
         id="name"
-        className="self-center text-3xl md:self-start font-pacifico"
+        className="text-5xl md:text-6xl font-pacifico self-start"
       >
-        Adam O&apos;Neill
+        Adam&nbsp;
+        <br />
+        O&apos;Neill
       </h1>
-      <div data-aos="fade-in" data-aos-delay="500">
+      <div data-aos={!isMobile && "fade-in"} data-aos-delay="500">
         {[...Array(numRows)].map((value, index) => (
-          <AnimatedText key={index} />
+          <AnimatedText key={index.toString()} />
         ))}
       </div>
       <h1
-        data-aos="slide-left"
+        data-aos={!isMobile && "slide-left"}
         data-aos-anchor="#name"
-        className="self-center text-3xl md:self-end font-pacifico"
+        className="text-5xl md:text-6xl self-end text-right font-pacifico"
       >
-        Available for hire
+        Available
+        <br />
+        &nbsp;for hire
       </h1>
-      <div className="absolute bottom-0 -translate-x-1/2 left-1/2">
-        <p className="text-md md:text-3xl animate-bounce">↓</p>
+      <div className="absolute bottom-8 left-8 md:-translate-x-1/2 md:left-1/2">
+        <p className="text-6xl md:text-3xl animate-bounce">↓</p>
       </div>
     </div>
   );
