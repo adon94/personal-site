@@ -1,10 +1,9 @@
 export default function WhatDo() {
   return (
     <div className="relative flex flex-col my-10 md:my-20 md:h-full">
-      <div className="sticky top-0 left-0 flex items-center w-full h-screen">
+      <div className="sticky top-0 left-0 flex items-center w-full md:h-screen">
         <div
           data-aos="slide-up"
-          data-aos-anchor-placement="top-bottom"
           className="flex items-center justify-center p-4 mx-auto bg-white border-2 border-black w-fit rounded-3xl md:p-20"
         >
           <p className="my-5 text-5xl font-semibold text-left text-black md:text-7xl">
@@ -20,7 +19,7 @@ export default function WhatDo() {
           </p>
         </div>
       </div>
-      <div className="h-screen"></div>
+      <div className="md:h-screen"></div>
     </div>
   );
 }

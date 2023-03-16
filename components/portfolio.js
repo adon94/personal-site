@@ -3,10 +3,10 @@ import StyledLink from "./styledLink";
 
 export default function Portfolio() {
   return (
-    <div className="w-full px-4 py-24 text-black md:px-24">
+    <div className="w-full px-4 py-10 text-black md:px-24">
       <div className="flex flex-col justify-center mx-auto w-fit">
         <h2 className="mb-6 text-2xl font-light font-pacifico md:text-md">
-          My work
+          Public work
         </h2>
         <div className="flex flex-col-reverse px-4 py-5 bg-white border-2 border-black rounded-lg md:py-10 md:px-7 md:flex-row md:justify-between">
           <div>
