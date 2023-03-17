@@ -2,7 +2,7 @@ import Head from "next/head";
 import Intro from "../components/intro";
 import WhatDo from "../components/whatDo";
 import Contact from "../components/contact";
-import Portfolio from "../components/portfolio";
+// import Portfolio from "../components/portfolio";
 
 export default function Home() {
   return (
@@ -16,7 +16,7 @@ export default function Home() {
       <main className="bg-texture h-full overflow-scroll snap-mandatory snap-y">
         <Intro />
         <WhatDo />
-        <Portfolio />
+        {/* <Portfolio /> */}
         <Contact />
       </main>
     </>
