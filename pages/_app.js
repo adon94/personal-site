@@ -28,9 +28,7 @@ function MyApp({ Component, pageProps }) {
             gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}');
           `}
       </Script>
-      <div>
-        <Component {...pageProps} />
-      </div>
+      <Component {...pageProps} />
     </>
   );
 }
