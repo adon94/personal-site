@@ -3,7 +3,7 @@ import StyledLink from "./styledLink";
 
 export default function Portfolio() {
   return (
-    <div className="w-full px-4 py-10 text-black md:px-24">
+    <section className="snap-start w-full px-4 py-10 text-black md:px-24">
       <div className="flex flex-col justify-center mx-auto w-fit">
         <h2 className="mb-6 text-2xl font-light font-pacifico md:text-md">
           Public work
@@ -29,6 +29,6 @@ export default function Portfolio() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

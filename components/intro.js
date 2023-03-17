@@ -35,7 +35,7 @@ function useWindowSize() {
 function AnimatedText() {
   return (
     <>
-      <div className="font-mono font-thin text-center text-white text-lg md:text-2xl animate-me bg-black md:bg-transparent w-fit md:w-full">
+      <div className="font-mono font-thin text-center text-white text-lg md:text-2xl animate-me bg-black px-5 md:px-0 md:bg-transparent w-fit md:w-full">
         Front_End_Developer
       </div>
 
@@ -100,14 +100,14 @@ export default function Intro() {
 
   if (!size.width)
     return (
-      <div className="flex flex-col justify-between w-screen h-screen p-10 text-white"></div>
+      <div className="snap-start flex flex-col justify-between w-screen h-screen p-10 text-white"></div>
     );
 
   // set num of animated rows based on screen size
-  const numRows = isMobile ? 8 : 13;
+  const numRows = isMobile ? 6 : 13;
 
   return (
-    <div className="flex flex-col justify-between items-center w-screen md:h-screen h-fill py-8 px-5 md:p-10 text-black overflow-hidden">
+    <section className="relative snap-start flex flex-col justify-between items-center w-screen md:h-screen h-fill py-8 px-5 md:p-10 text-black overflow-hidden">
       <h1
         data-aos={!isMobile && "slide-right"}
         id="name"
@@ -134,6 +134,6 @@ export default function Intro() {
       <div className="absolute bottom-8 left-8 md:-translate-x-1/2 md:left-1/2">
         <p className="text-6xl md:text-3xl animate-bounce">↓</p>
       </div>
-    </div>
+    </section>
   );
 }
