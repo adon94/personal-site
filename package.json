@@ -15,12 +15,15 @@
   },
   "dependencies": {
     "@fontsource/pacifico": "^4.5.9",
+    "@lottiefiles/lottie-interactivity": "^1.6.2",
+    "@lottiefiles/lottie-player": "^1.7.1",
     "animejs": "^3.2.1",
     "aos": "^2.3.4",
     "eslint-config-google": "^0.14.0",
     "letterizejs": "^2.0.1",
     "next": "12.2.3",
     "next-transpile-modules": "^9.0.0",
+    "postmark": "^3.0.15",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },

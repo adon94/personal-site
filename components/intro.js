@@ -1,23 +1,29 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Letterize from "letterizejs";
 import anime from "animejs/lib/anime.es.js";
 
-function useWindowSize() {
+function useIsMobile() {
   // Initialize state with undefined width/height so server and client renders match
-  const [windowSize, setWindowSize] = useState({
-    width: undefined,
-    height: undefined,
-  });
+  const [isMobile, setIsMobile] = useState(false);
+
+  function checkDevices() {
+    return (
+      navigator.userAgent.match(/Android/i) ||
+      navigator.userAgent.match(/webOS/i) ||
+      navigator.userAgent.match(/iPhone/i) ||
+      navigator.userAgent.match(/iPad/i) ||
+      navigator.userAgent.match(/iPod/i) ||
+      navigator.userAgent.match(/BlackBerry/i) ||
+      navigator.userAgent.match(/Windows Phone/i)
+    );
+  }
 
   useEffect(() => {
     // only execute all the code below in client side
     // Handler to call on window resize
     function handleResize() {
       // Set window width/height to state
-      setWindowSize({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
+      setIsMobile(checkDevices() || window.innerWidth < 768);
     }
 
     // Add event listener
@@ -29,32 +35,43 @@ function useWindowSize() {
     // Remove event listener on cleanup
     return () => window.removeEventListener("resize", handleResize);
   }, []); // Empty array ensures that effect is only run on mount
-  return windowSize;
+  return isMobile;
 }
 
 function AnimatedText() {
+  const isMobile = useIsMobile();
+  const text = "Front_End_Developer";
+  if (isMobile) {
+    return (
+      <>
+        {[...Array(6)].map((value, index) => (
+          <div
+            key={"mob" + index.toString()}
+            className="px-5 my-1 font-mono text-lg font-thin text-center text-white bg-black w-fit"
+          >
+            {text}
+          </div>
+        ))}
+      </>
+    );
+  }
   return (
     <>
-      <div className="font-mono font-thin text-center text-white text-lg md:text-2xl animate-me bg-black px-5 md:px-0 md:bg-transparent w-fit md:w-full">
-        Front_End_Developer
-      </div>
+      {[...Array(13)].map((value, index) => (
+        <div
+          key={index.toString()}
+          className="font-mono text-2xl font-thin text-center text-white animate-me md:w-full"
+        >
+          {text}
+        </div>
+      ))}
 
       <style jsx>{`
         .animate-me {
           text-transform: uppercase;
-          letter-spacing: 1px;
-          margin: 3px;
-          transform: scale(1);
-        }
-        /* .animate-me span {
-          background-color: hsla(188, 100%, 54%, 1);
-        } */
-        @media screen and (min-width: 900px) {
-          .animate-me {
-            margin: 0;
-            letter-spacing: 6px;
-            transform: none;
-          }
+          margin: 0;
+          letter-spacing: 6px;
+          transform: none;
         }
       `}</style>
     </>
@@ -62,76 +79,73 @@ function AnimatedText() {
 }
 
 export default function Intro() {
-  const size = useWindowSize();
-  const isMobile = size.width < 768;
+  const animation = useRef();
+  const test = useRef();
+  const isMobile = useIsMobile();
+  const [pageReady, setPageReady] = useState(false);
+
   useEffect(() => {
-    if (typeof window !== "undefined" && size.width > 768) {
-      const test = new Letterize({
+    const onPageLoad = () => {
+      setPageReady(true);
+    };
+
+    // Check if the page has already loaded
+    if (document.readyState === "complete") {
+      onPageLoad();
+    } else {
+      window.addEventListener("load", onPageLoad);
+      // Remove the event listener when component unmounts
+      return () => window.removeEventListener("load", onPageLoad);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (test.current && test.current.targets) test.current.deletterize();
+    if (typeof window !== "undefined" && !isMobile && pageReady) {
+      test.current = new Letterize({
         targets: ".animate-me",
       });
 
-      const animation = anime.timeline({
-        targets: test.listAll,
-        delay: anime.stagger(200, {
-          grid: [test.list[0].length, test.list.length],
+      animation.current = anime({
+        targets: test.current.listAll,
+        delay: anime.stagger(250, {
+          grid: [test.current.list[0].length, test.current.list.length],
           from: "center",
         }),
-        // backgroundColor: ["hsla(188, 100%, 54%, 1)", "hsla(299, 100%, 54%, 1)"],
+        scale: [
+          { value: 0.7, easing: "easeOutSine", duration: 500 },
+          { value: 1, easing: "easeInOutQuad", duration: 1200 },
+        ],
         loop: true,
-        easing: "easeInOutElastic(1, .6)",
+        complete: function (anim) {
+          test?.current.deletterize();
+        },
       });
-
-      animation
-        .add({
-          scale: 0.8,
-        })
-        .add({
-          letterSpacing: isMobile ? "3px" : "10px",
-          borderRadius: 5,
-        })
-        .add({
-          scale: 1,
-        })
-        .add({
-          letterSpacing: isMobile ? "1px" : "6px",
-        });
     }
-  }, [size, isMobile]);
+  }, [isMobile, pageReady]);
 
-  if (!size.width)
+  if (!pageReady) {
     return (
-      <div className="snap-start flex flex-col justify-between w-screen h-screen p-10 text-white"></div>
+      <div className="flex items-center justify-center w-screen h-screen text-5xl text-black snap-start"></div>
     );
-
-  // set num of animated rows based on screen size
-  const numRows = isMobile ? 6 : 13;
+  }
 
   return (
-    <section className="relative snap-start flex flex-col justify-between items-center w-screen md:h-screen h-fill py-8 px-5 md:p-10 text-black overflow-hidden">
-      <h1
-        data-aos={!isMobile && "slide-right"}
-        id="name"
-        className="text-5xl md:text-6xl font-pacifico self-start"
-      >
+    <section className="flex flex-col items-center justify-between w-screen px-5 py-8 overflow-hidden text-black snap-start md:h-screen h-fill md:p-10">
+      <h1 className="self-start text-5xl slide-left md:text-6xl font-pacifico text-shadow-white">
         Adam&nbsp;
         <br />
         O&apos;Neill
       </h1>
-      <div data-aos={!isMobile && "fade-in"} data-aos-delay="500">
-        {[...Array(numRows)].map((value, index) => (
-          <AnimatedText key={index.toString()} />
-        ))}
+      <div className="shrink-out">
+        <AnimatedText />
       </div>
-      <h1
-        data-aos={!isMobile && "slide-left"}
-        data-aos-anchor="#name"
-        className="text-5xl md:text-6xl self-end text-right font-pacifico"
-      >
+      <h1 className="self-end text-5xl text-right slide-right bottom-8 md:text-6xl font-pacifico text-shadow-white">
         Available
         <br />
         &nbsp;for hire
       </h1>
-      <div className="absolute bottom-8 left-8 md:-translate-x-1/2 md:left-1/2">
+      <div className="absolute shrink-out bottom-8 left-8 md:-translate-x-1/2 md:left-1/2">
         <p className="text-6xl md:text-3xl animate-bounce">↓</p>
       </div>
     </section>

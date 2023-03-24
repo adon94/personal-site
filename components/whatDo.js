@@ -1,21 +1,57 @@
+import { useCallback, useEffect, useRef } from "react";
+import { create } from "@lottiefiles/lottie-interactivity";
+
+function Flowers() {
+  const myRef = useRef();
+  const setUpLottie = useCallback(async () => {
+    (await import("@lottiefiles/lottie-player")).default;
+    myRef.current.addEventListener("load", function (e) {
+      // 4. configure the interactivity library
+      create({
+        mode: "scroll",
+        player: "#firstLottie",
+        container: "#MyContainerId",
+        actions: [
+          {
+            scale: [0, 1],
+            visibility: [0, 1],
+            type: "seek",
+            frames: [0, 100],
+          },
+        ],
+      });
+    });
+  }, []);
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setUpLottie();
+    }
+  }, [setUpLottie]);
+  return (
+    <lottie-player
+      id={"firstLottie"}
+      ref={myRef}
+      src="https://assets4.lottiefiles.com/packages/lf20_jq1xghup.json"
+      style={{
+        zIndex: 0,
+      }}
+    ></lottie-player>
+  );
+}
+
 export default function WhatDo() {
   return (
-    <section className="snap-start flex flex-col justify-center items-center my-10 md:my-20 h-full">
-      <div className="flex items-center justify-center w-full">
-        <div
-          // data-aos="slide-up"
-          className="flex items-center justify-center p-4 mx-auto bg-white border-2 border-black w-fit rounded-3xl md:p-20"
-        >
-          <p className="my-5 text-5xl font-semibold text-left text-black md:text-7xl">
-            <span>I support</span>
-            <br></br>
-            <span>designers and</span>
-            <br></br>
-            <span>agencies with</span>
-            <br></br>
-            <span>front end</span>
-            <br></br>
-            <span>development.</span>
+    <section
+      id="MyContainerId"
+      className="relative flex flex-col items-center justify-center h-full my-10 snap-start md:my-20"
+    >
+      <div className="absolute top-0 left-0 w-full h-screen scale-150 md:scale-100">
+        <Flowers />
+      </div>
+      <div className="flex items-center justify-center px-5 md:px-0">
+        <div className="z-10 flex items-center justify-center w-full px-8 mx-auto bg-white border-2 border-black md:px-5 md:w-1/2 rounded-3xl">
+          <p className="my-6 text-3xl font-semibold text-center text-black w-fit md:my-8 lg:text-3xl">
+            I create beautiful websites that feel satisfying to use.
           </p>
         </div>
       </div>
