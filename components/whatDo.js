@@ -13,10 +13,9 @@ function Flowers() {
         container: "#MyContainerId",
         actions: [
           {
-            scale: [0, 1],
             visibility: [0, 1],
             type: "seek",
-            frames: [0, 100],
+            frames: [0, 150],
           },
         ],
       });
@@ -49,9 +48,10 @@ export default function WhatDo() {
         <Flowers />
       </div>
       <div className="flex items-center justify-center px-5 md:px-0">
-        <div className="z-10 flex items-center justify-center w-full px-8 mx-auto bg-white border-2 border-black md:px-5 md:w-1/2 rounded-3xl">
-          <p className="my-6 text-3xl font-semibold text-center text-black w-fit md:my-8 lg:text-3xl">
-            I create beautiful websites that feel satisfying to use.
+        <div className="z-10 flex items-center justify-center w-full px-6 mx-auto bg-white border-2 border-black rounded-md md:px-5 md:w-1/2">
+          <p className="my-6 text-2xl font-semibold text-center text-black w-fit md:my-8 lg:text-4xl">
+            I help brands connect to their customers through beautiful web
+            experiences.
           </p>
         </div>
       </div>

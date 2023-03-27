@@ -20,6 +20,7 @@
     "animejs": "^3.2.1",
     "aos": "^2.3.4",
     "eslint-config-google": "^0.14.0",
+    "framer-motion": "^10.9.1",
     "letterizejs": "^2.0.1",
     "next": "12.2.3",
     "next-transpile-modules": "^9.0.0",

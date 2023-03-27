@@ -1,12 +1,14 @@
 import { useState } from "react";
 
+const defaultState = {
+  name: "",
+  email: "",
+  subject: "",
+  message: "",
+};
+
 const useContactForm = () => {
-  const [values, setValues] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
+  const [values, setValues] = useState(defaultState);
 
   const handleChange = (e) => {
     setValues((prevState) => {
@@ -17,32 +19,34 @@ const useContactForm = () => {
     });
   };
 
-  return { values, handleChange };
+  const clearForm = () => {
+    setValues(defaultState);
+  };
+
+  return { values, handleChange, clearForm };
 };
 
 const ContactForm = () => {
-  const { values, handleChange } = useContactForm();
+  const { values, handleChange, clearForm } = useContactForm();
+  const [sent, setSent] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    fetch("/api/contact", {
+    const res = await fetch("/api/contact", {
       method: "POST",
       headers: {
         Accept: "application/json, text/plain, */*",
         "Content-Type": "application/json",
       },
       body: JSON.stringify(values),
-    }).then((res) => {
-      console.log(res);
-      if (res.status === 200) {
-        setValues({
-          name: "",
-          email: "",
-          subject: "",
-          message: "",
-        });
-      }
-    });
+    }); // .then((res) => {
+    console.log("then");
+    console.log(res);
+    if (res.status === 200) {
+      clearForm();
+      setSent(true);
+    }
+    // });
   };
 
   const inputClasses =
@@ -90,8 +94,13 @@ const ContactForm = () => {
         className="self-center p-4 text-xl text-white transition bg-black rounded-md font-pacifico hover:scale-105"
         type="submit"
         value="Submit"
+        disabled={sent}
       >
-        Send&nbsp; &#x1F3F9;
+        {sent && values === defaultState ? (
+          "Message sent!"
+        ) : (
+          <>Send&nbsp; &#x1F3F9;</>
+        )}
       </button>
     </form>
   );

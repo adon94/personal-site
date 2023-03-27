@@ -7,7 +7,7 @@ export default function Contact() {
         <h2 className="text-xl text-center md:text-2xl font-pacifico">
           I would love to hear from you.
         </h2>
-        <div className="flex flex-col items-center self-center p-2 bg-white border-2 border-black md:p-5 rounded-3xl">
+        <div className="flex flex-col items-center self-center p-2 bg-white border-2 border-black rounded-md md:p-5">
           <p className="text-xl text-center md:text-xl">
             I&apos;m currently interested in <b>remote front end developer</b>{" "}
             roles with a focus on <b>React</b> and <b>Web3</b>, but also open to

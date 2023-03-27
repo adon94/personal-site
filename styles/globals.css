@@ -32,6 +32,13 @@ a {
   box-sizing: border-box;
 }
 
+.animate-me {
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: 6px;
+  transform: none;
+}
+
 .animate-me span {
   display: inline-block;
   position: relative;
@@ -57,88 +64,9 @@ a {
     height: 35px;
   }
 }
+
 .bg-texture {
   background-color: #ffe9cc;
   background-image: url("/patterns/handmadepaper.png");
   background-blend-mode: multiply;
-}
-
-.text-shadow-white {
-  text-shadow: 5px 5px 100px #ffffff;
-}
-
-.shrink-out {
-  transform: scale(1);
-  animation: shrinkOut 1s linear;
-}
-
-@keyframes shrinkOut {
-  to {
-    transform: scale(0);
-  }
-}
-
-.flip-out {
-  transform-style: preserve-3d;
-  transform: rotateX(-100deg);
-  animation: flipOut 1s linear;
-}
-
-@keyframes flipOut {
-  50% {
-    transform: rotateX(0deg);
-  }
-  100% {
-    transform: rotateX(0deg);
-  }
-}
-
-.slide-left {
-  transform: translateX(0);
-  opacity: 1;
-  animation: slideLeft 1s linear;
-}
-
-@keyframes slideLeft {
-  to {
-    transform: translateX(-900px);
-    opacity: 0;
-  }
-}
-
-.slide-right {
-  transform: translateX(0);
-  opacity: 1;
-  animation: slideRight 1s linear;
-}
-
-@keyframes slideRight {
-  to {
-    transform: translateX(900px);
-    opacity: 0;
-  }
-}
-
-.fade-out {
-  opacity: 1;
-  animation: fadeOut 1s linear;
-}
-
-@keyframes fadeOut {
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-:root * {
-  /* Pause the animation */
-  animation-play-state: paused;
-  /* Bind the animation to scroll */
-  animation-delay: calc(var(--scroll) * -1s);
-  /* These last 2 properites clean up overshoot weirdness */
-  animation-iteration-count: 1;
-  animation-fill-mode: both;
 }

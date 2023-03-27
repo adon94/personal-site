@@ -13,12 +13,14 @@ export default async function Contact(req, res) {
     function (error, result) {
       if (error) {
         console.error("Unable to send via postmark: " + error.message);
-        res.status(send.ErrorCode);
+        res.status = 500;
         return;
       }
       console.info("Sent to postmark for delivery");
       res.setHeader("Content-Type", "application/json");
-      res.status(200);
+
+      res.status = 200;
     }
   );
+  res.end();
 }
