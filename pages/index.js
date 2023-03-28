@@ -1,14 +1,17 @@
+import { useRef } from "react";
+import dynamic from "next/dynamic";
 import Head from "next/head";
+import Intro from "../components/intro";
 import WhatDo from "../components/whatDo";
 import Contact from "../components/contact";
 import Footer from "../components/footer";
-import { useRef } from "react";
-// import Portfolio from "../components/portfolio";
-import dynamic from "next/dynamic";
 
-const Intro = dynamic(() => import("../components/intro"), {
-  ssr: false,
-});
+const ScrollAnimations = dynamic(
+  () => import("../components/scrollAnimations"),
+  {
+    ssr: false,
+  }
+);
 
 export default function Home() {
   const scrollElement = useRef();
@@ -24,9 +27,10 @@ export default function Home() {
         ref={scrollElement}
         className="relative h-full overflow-scroll bg-texture snap-mandatory snap-y"
       >
-        <Intro scrollElement={scrollElement} />
+        <Intro>
+          <ScrollAnimations scrollElement={scrollElement} />
+        </Intro>
         <WhatDo />
-        {/* <Portfolio /> */}
         <Contact />
         <Footer />
       </main>
