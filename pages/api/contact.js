@@ -1,14 +1,15 @@
 import { ServerClient } from "postmark";
 
 export default async function Contact(req, res) {
-  const client = new ServerClient("c0df46f3-1853-4b98-b9dc-953e1f2437b2");
+  const apiKey = process.env.POSTMARK_API;
+  const client = new ServerClient(apiKey);
   console.log(req.body);
   await client.sendEmail(
     {
       From: "hello@adamcodes.io",
       To: "hello@adamcodes.io",
-      Subject: req.body.subject,
-      TextBody: req.body.message,
+      Subject: "New request from adamcodes.io contact form!",
+      TextBody: `From: ${req.body.email}:\n\nSubject: ${req.body.subject}\n\n${req.body.message}`,
     },
     function (error, result) {
       if (error) {

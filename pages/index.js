@@ -1,10 +1,14 @@
 import Head from "next/head";
-import Intro from "../components/intro";
 import WhatDo from "../components/whatDo";
 import Contact from "../components/contact";
 import Footer from "../components/footer";
 import { useRef } from "react";
 // import Portfolio from "../components/portfolio";
+import dynamic from "next/dynamic";
+
+const Intro = dynamic(() => import("../components/intro"), {
+  ssr: false,
+});
 
 export default function Home() {
   const scrollElement = useRef();
