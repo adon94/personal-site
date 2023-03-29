@@ -4,9 +4,8 @@ import {
   useTransform,
   AnimatePresence,
 } from "framer-motion";
-import AnimatedHero from "./animatedHero";
 
-export default function ScrollAnimations({ scrollElement }) {
+export default function ScrollAnimations({ scrollElement, children }) {
   const { scrollYProgress } = useScroll({
     container: scrollElement,
   });
@@ -52,7 +51,7 @@ export default function ScrollAnimations({ scrollElement }) {
           transition={{ delay: 0.8 }}
           style={{ scale: scale }}
         >
-          <AnimatedHero />
+          {children}
         </motion.div>
         <motion.h1
           key="available"
