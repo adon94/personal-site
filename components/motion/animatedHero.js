@@ -1,18 +1,17 @@
 import { useEffect, useRef } from "react";
 import Letterize from "letterizejs";
 import anime from "animejs/lib/anime.es.js";
-import { useIsMobile, usePageReady } from "../../utils";
+import { usePageReady } from "../../utils";
 
 export default function AnimatedHero() {
   const animation = useRef();
   const test = useRef();
-  const isMobile = useIsMobile();
   const pageReady = usePageReady();
-  const text = "Front_End_Developer";
+  const text = "creative_dev";
 
   useEffect(() => {
     if (test.current && test.current.targets) test.current.deletterize();
-    if (typeof window !== "undefined" && !isMobile && pageReady) {
+    if (typeof window !== "undefined" && pageReady) {
       test.current = new Letterize({
         targets: ".animate-me",
       });
@@ -33,28 +32,14 @@ export default function AnimatedHero() {
         },
       });
     }
-  }, [isMobile, pageReady]);
+  }, [pageReady]);
 
-  if (isMobile) {
-    return (
-      <>
-        {[...Array(6)].map((value, index) => (
-          <div
-            key={"mob" + index.toString()}
-            className="px-5 my-1 font-mono text-lg font-thin text-center text-white bg-black w-fit"
-          >
-            {text}
-          </div>
-        ))}
-      </>
-    );
-  }
   return (
     <>
-      {[...Array(13)].map((value, index) => (
+      {[...Array(text.length)].map((value, index) => (
         <div
-          key={index.toString()}
-          className="font-mono text-2xl font-thin text-center text-white animate-me md:w-full"
+          key={text + index.toString()}
+          className="w-full font-mono text-lg font-thin text-center text-white whitespace-nowrap animate-me"
         >
           {text}
         </div>
