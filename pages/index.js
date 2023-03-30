@@ -5,10 +5,10 @@ import Intro from "../components/intro";
 import WhatDo from "../components/whatDo";
 import Contact from "../components/contact";
 import Footer from "../components/footer";
-import AnimatedHero from "../components/animatedHero";
+import AnimatedHero from "../components/motion/animatedHero";
 
 const ScrollAnimations = dynamic(
-  () => import("../components/scrollAnimations"),
+  () => import("../components/motion/scrollAnimations"),
   {
     ssr: false,
   }
@@ -26,7 +26,7 @@ export default function Home() {
 
       <main
         ref={scrollElement}
-        className="relative h-full overflow-scroll bg-texture snap-mandatory snap-y"
+        className="relative h-full overflow-scroll overflow-x-hidden bg-texture snap-mandatory snap-y"
       >
         <Intro>
           <ScrollAnimations scrollElement={scrollElement}>

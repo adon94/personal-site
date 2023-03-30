@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import Letterize from "letterizejs";
 import anime from "animejs/lib/anime.es.js";
-import { useIsMobile, usePageReady } from "../utils";
+import { useIsMobile, usePageReady } from "../../utils";
 
 export default function AnimatedHero() {
   const animation = useRef();
@@ -35,9 +35,6 @@ export default function AnimatedHero() {
     }
   }, [isMobile, pageReady]);
 
-  if (!pageReady) {
-    return <div></div>;
-  }
   if (isMobile) {
     return (
       <>
