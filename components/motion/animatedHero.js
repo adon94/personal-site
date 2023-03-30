@@ -35,15 +35,15 @@ export default function AnimatedHero() {
   }, [pageReady]);
 
   return (
-    <>
+    <div className="anim-hero">
       {[...Array(text.length)].map((value, index) => (
         <div
           key={text + index.toString()}
-          className="w-full font-mono text-lg font-thin text-center text-white whitespace-nowrap animate-me"
+          className="w-full font-mono text-lg font-thin text-center text-white md:text-xl whitespace-nowrap animate-me"
         >
           {text}
         </div>
       ))}
-    </>
+    </div>
   );
 }
