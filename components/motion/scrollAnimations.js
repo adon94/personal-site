@@ -36,23 +36,25 @@ export default function ScrollAnimations({ scrollElement, children }) {
           <br />
           O&apos;Neill
         </motion.h1>
-        <motion.div
-          key="hero-anim"
-          initial="initial"
-          animate="animate"
-          variants={{
-            initial: {
-              scale: 0,
-            },
-            animate: {
-              scale: 1,
-            },
-          }}
-          transition={{ delay: 0.8 }}
-          style={{ scale: scale }}
-        >
-          {children}
-        </motion.div>
+        <div className="anim-hero">
+          <motion.div
+            key="hero-anim"
+            initial="initial"
+            animate="animate"
+            variants={{
+              initial: {
+                scale: 0,
+              },
+              animate: {
+                scale: 1,
+              },
+            }}
+            transition={{ delay: 0.8 }}
+            style={{ scale: scale }}
+          >
+            {children}
+          </motion.div>
+        </div>
         <motion.h1
           key="available"
           style={{ translateX: slideRight }}
@@ -67,7 +69,7 @@ export default function ScrollAnimations({ scrollElement, children }) {
             },
           }}
           transition={{ delay: 0.8 }}
-          className="self-end text-5xl text-right bottom-8 md:text-6xl font-pacifico"
+          className="self-end text-5xl text-right md:text-6xl font-pacifico"
         >
           Available
           <br />

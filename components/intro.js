@@ -18,7 +18,7 @@ export default function Intro({ children }) {
         />
       </div>
       <section
-        className="absolute left-0 w-screen h-screen transition-all snap-start"
+        className="absolute left-0 w-screen transition-all h-fill snap-start"
         style={{ top: pageReady ? "0vh" : "100vh" }}
       >
         {children}

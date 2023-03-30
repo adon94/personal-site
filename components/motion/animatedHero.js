@@ -35,7 +35,7 @@ export default function AnimatedHero() {
   }, [pageReady]);
 
   return (
-    <div className="anim-hero">
+    <>
       {[...Array(text.length)].map((value, index) => (
         <div
           key={text + index.toString()}
@@ -44,6 +44,6 @@ export default function AnimatedHero() {
           {text}
         </div>
       ))}
-    </div>
+    </>
   );
 }
