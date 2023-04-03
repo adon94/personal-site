@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import dynamic from "next/dynamic";
 import Head from "next/head";
+import { createClient } from "next-sanity";
 import Intro from "../components/intro";
 import WhatDo from "../components/whatDo";
 import Contact from "../components/contact";
@@ -14,7 +15,7 @@ const ScrollAnimations = dynamic(
   }
 );
 
-export default function Home() {
+export default function Home({ copy }) {
   const scrollElement = useRef();
   return (
     <>
@@ -29,14 +30,30 @@ export default function Home() {
         className="relative h-full overflow-scroll overflow-x-hidden bg-texture snap-mandatory snap-y"
       >
         <Intro>
-          <ScrollAnimations scrollElement={scrollElement}>
-            <AnimatedHero />
+          <ScrollAnimations copy={copy} scrollElement={scrollElement}>
+            <AnimatedHero copy={copy} />
           </ScrollAnimations>
         </Intro>
-        <WhatDo />
-        <Contact />
+        <WhatDo copy={copy} />
+        <Contact copy={copy} />
         <Footer />
       </main>
     </>
   );
+}
+
+const client = createClient({
+  projectId: process.env.SANITY_ID,
+  dataset: process.env.SANITY_ENV,
+  useCdn: false,
+});
+
+export async function getStaticProps() {
+  const copy = await client.fetch(`*[_type == "site-copy"][0]`);
+
+  return {
+    props: {
+      copy,
+    },
+  };
 }

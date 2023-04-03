@@ -4,8 +4,9 @@ import {
   useTransform,
   AnimatePresence,
 } from "framer-motion";
+import { PortableText } from "@portabletext/react";
 
-export default function ScrollAnimations({ scrollElement, children }) {
+export default function ScrollAnimations({ scrollElement, children, copy }) {
   const { scrollYProgress } = useScroll({
     container: scrollElement,
   });
@@ -32,9 +33,7 @@ export default function ScrollAnimations({ scrollElement, children }) {
           transition={{ delay: 0.8 }}
           className="self-start text-5xl md:text-6xl font-pacifico"
         >
-          Adam&nbsp;
-          <br />
-          O&apos;Neill
+          <PortableText value={copy.introTopLeft} />
         </motion.h1>
         <div className="anim-hero">
           <motion.div
@@ -71,9 +70,7 @@ export default function ScrollAnimations({ scrollElement, children }) {
           transition={{ delay: 0.8 }}
           className="self-end text-5xl text-right md:text-6xl font-pacifico"
         >
-          Available
-          <br />
-          &nbsp;for hire
+          <PortableText value={copy.introBottomRight} />
         </motion.h1>
         <div className="absolute bottom-8 left-8 md:-translate-x-1/2 md:left-1/2">
           <p className="text-6xl md:text-3xl animate-bounce">↓</p>

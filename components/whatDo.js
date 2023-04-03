@@ -1,6 +1,7 @@
+import { PortableText } from "@portabletext/react";
 import Flowers from "./motion/flowers";
 
-export default function WhatDo() {
+export default function WhatDo({ copy }) {
   return (
     <section
       id="MyContainerId"
@@ -10,11 +11,8 @@ export default function WhatDo() {
         <Flowers />
       </div>
       <div className="flex items-center justify-center px-5 md:px-0">
-        <div className="z-10 flex items-center justify-center w-full px-6 mx-auto bg-white border-2 border-black rounded-md md:px-5 md:w-1/2">
-          <p className="my-6 text-2xl font-semibold text-center text-black w-fit md:my-8 lg:text-4xl">
-            I help brands connect with their customers through beautiful web
-            experiences.
-          </p>
+        <div className="z-10 flex items-center justify-center w-full p-6 mx-auto text-2xl font-semibold text-center text-black bg-white border-2 border-black rounded-md md:px-5 md:w-1/2 lg:text-4xl md:py-8">
+          <PortableText value={copy.whatDo} />
         </div>
       </div>
     </section>
