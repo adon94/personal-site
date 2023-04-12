@@ -15,13 +15,13 @@ const ScrollAnimations = dynamic(
   }
 );
 
-export default function Home({ copy }) {
+export default function Home({ copy, meta }) {
   const scrollElement = useRef();
   return (
     <>
       <Head>
-        <title>Front End Dev - Adam O&apos;Neill</title>
-        <meta name="description" content="Front end developer for hire." />
+        <title>{meta.title}</title>
+        <meta name="description" content={meta.description} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -49,11 +49,11 @@ const client = createClient({
 });
 
 export async function getStaticProps() {
-  const copy = await client.fetch(`*[_type == "site-copy"][0]`);
-
+  const [copy, meta] = await client.fetch(`*[_type in ["site-copy", "meta"]]`);
   return {
     props: {
       copy,
+      meta,
     },
   };
 }

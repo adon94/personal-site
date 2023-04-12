@@ -42,13 +42,13 @@ export default function ScrollAnimations({ scrollElement, children, copy }) {
             animate="animate"
             variants={{
               initial: {
-                scale: 0,
+                opacity: 0,
               },
               animate: {
-                scale: 1,
+                opacity: 1,
               },
             }}
-            transition={{ delay: 0.8 }}
+            transition={{ delay: 0.8, duration: 1 }}
             style={{ scale: scale }}
           >
             {children}
