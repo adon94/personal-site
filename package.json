@@ -18,6 +18,8 @@
     "@lottiefiles/lottie-interactivity": "^1.6.2",
     "@lottiefiles/lottie-player": "^1.7.1",
     "@portabletext/react": "^2.0.2",
+    "@sanity/image-url": "^1.0.2",
+    "@sanity/vision": "^3.9.0",
     "animejs": "^3.2.1",
     "aos": "^2.3.4",
     "eslint-config-google": "^0.14.0",
@@ -28,7 +30,9 @@
     "next-transpile-modules": "^10.0.0",
     "postmark": "^3.0.15",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "sanity": "^3.9.0",
+    "sanity-plugin-vercel-deploy": "^3.3.3"
   },
   "devDependencies": {
     "@types/node": "^18.7.6",
