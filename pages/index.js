@@ -43,8 +43,8 @@ export default function Home({ copy, meta }) {
 }
 
 const client = createClient({
-  projectId: process.env.SANITY_ID,
-  dataset: process.env.SANITY_ENV,
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
   useCdn: false,
 });
 
