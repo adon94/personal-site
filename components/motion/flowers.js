@@ -8,13 +8,13 @@ export default function Flowers() {
     myRef.current.addEventListener("load", function (e) {
       create({
         mode: "scroll",
-        player: "#firstLottie",
-        container: "#MyContainerId",
+        player: "#lottie-animation",
+        container: "#lottie-container",
         actions: [
           {
             visibility: [0, 1],
             type: "seek",
-            frames: [0, 150],
+            frames: [0, 250],
           },
         ],
       });
@@ -26,13 +26,16 @@ export default function Flowers() {
     }
   }, [setUpLottie]);
   return (
-    <lottie-player
-      id={"firstLottie"}
-      ref={myRef}
-      src="https://assets4.lottiefiles.com/packages/lf20_jq1xghup.json"
-      style={{
-        zIndex: 0,
-      }}
-    ></lottie-player>
+    <div id="lottie-container" className="h-48">
+      <lottie-player
+        id="lottie-animation"
+        ref={myRef}
+        src="https://assets4.lottiefiles.com/private_files/lf30_r3xz9un5.json"
+        style={{
+          zIndex: 0,
+          margin: "0 auto",
+        }}
+      ></lottie-player>
+    </div>
   );
 }
