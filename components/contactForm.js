@@ -30,8 +30,19 @@ const ContactForm = () => {
   const { values, handleChange, clearForm } = useContactForm();
   const [sent, setSent] = useState(false);
 
+  function checkFormEmpty() {
+    return (
+      values.name === "" ||
+      values.email === "" ||
+      values.subject === "" ||
+      values.message === ""
+    );
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const formEmpty = checkFormEmpty();
+    if (formEmpty) return;
     const res = await fetch("/api/contact", {
       method: "POST",
       headers: {
@@ -39,14 +50,11 @@ const ContactForm = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(values),
-    }); // .then((res) => {
-    console.log("then");
-    console.log(res);
+    });
     if (res.status === 200) {
       clearForm();
       setSent(true);
     }
-    // });
   };
 
   const inputClasses =
@@ -91,7 +99,7 @@ const ContactForm = () => {
         placeholder="Message"
       />
       <button
-        className="self-center p-4 text-xl text-white transition bg-black rounded-md font-pacifico hover:scale-105"
+        className="self-center p-4 text-xl text-white bg-black border-2 border-black rounded-md font-pacifico hover:scale-105 hover:bg-white hover:text-black transition-all"
         type="submit"
         value="Submit"
         disabled={sent}

@@ -11,12 +11,23 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background: #ffe9cc;
   overflow-y: hidden;
+  cursor: url("../public/cursor.svg") 16 16, default;
 }
 
 html,
 body,
 #__next {
   height: 100%;
+}
+
+input,
+textarea {
+  cursor: url("../public/cursor-text.svg") 16 16, text;
+}
+
+button,
+a {
+  cursor: url("../public/cursor-pointer.svg") 16 16, pointer;
 }
 
 .h-fill {
