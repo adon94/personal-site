@@ -14,7 +14,7 @@ export default function Flowers() {
           {
             visibility: [0, 1],
             type: "seek",
-            frames: [0, 250],
+            frames: [-100, 300],
           },
         ],
       });
@@ -26,7 +26,7 @@ export default function Flowers() {
     }
   }, [setUpLottie]);
   return (
-    <div id="lottie-container" className="h-48">
+    <div className="h-48">
       <lottie-player
         id="lottie-animation"
         ref={myRef}
