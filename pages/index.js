@@ -23,6 +23,8 @@ export default function Home({ copy, meta }) {
         <title>{meta.title}</title>
         <meta name="description" content={meta.description} />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="preconnect" href="https://assets4.lottiefiles.com" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
       </Head>
 
       <main

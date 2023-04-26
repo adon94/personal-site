@@ -1,4 +1,3 @@
-/** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
@@ -8,8 +7,12 @@ const nextConfig = {
   },
 };
 
+const withPlugins = require("next-compose-plugins");
+
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+  enabled: process.env.ANALYZE === "true",
+});
+
 const withTM = require("next-transpile-modules")(["letterizejs", "animejs"]); // pass the modules you would like to see transpiled
 
-module.exports = withTM(nextConfig);
-
-// module.exports = nextConfig
+module.exports = withPlugins([withTM, withBundleAnalyzer], nextConfig);

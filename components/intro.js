@@ -15,11 +15,12 @@ export default function Intro({ children }) {
           alt="loading animation"
           width={80}
           height={80}
+          priority
         />
       </div>
       <section
-        className="absolute left-0 w-screen transition-all h-fill snap-start"
-        style={{ top: pageReady ? "0vh" : "100vh" }}
+        className="absolute left-0 top-0 w-screen transition-all h-fill snap-start"
+        style={{ opacity: pageReady ? 1 : 0 }}
       >
         {children}
       </section>
