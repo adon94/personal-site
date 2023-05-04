@@ -6,8 +6,14 @@ export default function Intro({ children }) {
 
   return (
     <>
+      <section
+        className="md:sticky left-0 top-0 w-screen transition-all h-fill snap-start"
+        style={{ opacity: pageReady ? 1 : 0 }}
+      >
+        {children}
+      </section>
       <div
-        className="flex items-center justify-center w-screen h-screen transition-all snap-start"
+        className="absolute flex items-center justify-center w-screen h-screen transition-all snap-start"
         style={{ opacity: pageReady ? 0 : 1 }}
       >
         <Image
@@ -18,12 +24,6 @@ export default function Intro({ children }) {
           priority
         />
       </div>
-      <section
-        className="absolute left-0 top-0 w-screen transition-all h-fill snap-start"
-        style={{ opacity: pageReady ? 1 : 0 }}
-      >
-        {children}
-      </section>
     </>
   );
 }

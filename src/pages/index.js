@@ -2,9 +2,9 @@ import { useRef } from "react";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import { createClient } from "next-sanity";
-import Intro from "../components/intro";
-import WhatDo from "../components/whatDo";
-import Contact from "../components/contact";
+import Intro from "../sections/intro";
+import WhatDo from "../sections/whatDo";
+import Contact from "../sections/contact";
 import Footer from "../components/footer";
 import AnimatedHero from "../components/motion/animatedHero";
 
@@ -29,7 +29,7 @@ export default function Home({ copy, meta }) {
 
       <main
         ref={scrollElement}
-        className="relative h-full overflow-scroll overflow-x-hidden bg-texture snap-mandatory snap-y"
+        className="relative h-full overflow-x-hidden bg-texture"
       >
         <Intro>
           <ScrollAnimations copy={copy} scrollElement={scrollElement}>

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import StyledLink from "./styledLink";
+import StyledLink from "../components/styledLink";
 
 export default function Portfolio() {
   return (

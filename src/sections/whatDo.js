@@ -1,5 +1,5 @@
 import { PortableText } from "@portabletext/react";
-import Flowers from "./motion/flowers";
+import Flowers from "../components/motion/flowers";
 
 export default function WhatDo({ copy }) {
   return (

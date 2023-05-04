@@ -5,14 +5,19 @@ import {
   AnimatePresence,
 } from "framer-motion";
 import { PortableText } from "@portabletext/react";
+import { useIsMobile } from "../../utils";
 
 export default function ScrollAnimations({ scrollElement, children, copy }) {
+  const isMobile = useIsMobile();
   const { scrollYProgress } = useScroll({
     container: scrollElement,
   });
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0]);
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const arrrowOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
   const slideRight = useTransform(scrollYProgress, [0, 1], [0, 500]);
   const slideLeft = useTransform(scrollYProgress, [0, 1], [0, -500]);
+  const slideUp = useTransform(scrollYProgress, [0, 1], [0, -800]);
 
   return (
     <AnimatePresence>
@@ -29,7 +34,7 @@ export default function ScrollAnimations({ scrollElement, children, copy }) {
               translateX: 0,
             },
           }}
-          style={{ translateX: slideLeft }}
+          style={{ translateX: slideLeft, scale, opacity: heroOpacity }}
           transition={{ delay: 0.8 }}
           className="self-start text-5xl md:text-6xl font-pacifico"
         >
@@ -49,14 +54,18 @@ export default function ScrollAnimations({ scrollElement, children, copy }) {
               },
             }}
             transition={{ delay: 0.8, duration: 1 }}
-            style={{ scale: scale }}
+            style={{
+              scale: scale,
+              translateY: isMobile ? 0 : slideUp,
+              opacity: heroOpacity,
+            }}
           >
             {children}
           </motion.div>
         </div>
         <motion.h1
           key="available"
-          style={{ translateX: slideRight }}
+          style={{ translateX: slideRight, scale, opacity: heroOpacity }}
           initial="initial"
           animate="animate"
           variants={{
@@ -72,9 +81,12 @@ export default function ScrollAnimations({ scrollElement, children, copy }) {
         >
           <PortableText value={copy.introBottomRight} />
         </motion.h1>
-        <div className="absolute bottom-8 left-8 md:-translate-x-1/2 md:left-1/2">
+        <motion.div
+          className="absolute bottom-8 left-8 md:-translate-x-1/2 md:left-1/2"
+          style={{ opacity: arrrowOpacity }}
+        >
           <p className="text-6xl md:text-3xl animate-bounce">↓</p>
-        </div>
+        </motion.div>
       </div>
     </AnimatePresence>
   );
