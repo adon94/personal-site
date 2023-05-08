@@ -24,7 +24,7 @@ function AboutProject() {
 
 function ProjectPhoto() {
   return (
-    <div className="cursor-go relative h-[250px] w-[141px] md:h-[400px] md:w-[225]">
+    <div className="cursor-go relative h-[250px] w-[141px] md:h-[400px] md:w-[225px]">
       <Image src="/phasecraft.png" fill alt="Phasecraft homepage" />
     </div>
   );
