@@ -22,6 +22,6 @@
     "target": "es2018",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/index.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/index.js"],
   "exclude": ["node_modules"]
 }

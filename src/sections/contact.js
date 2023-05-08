@@ -1,10 +1,10 @@
 import { PortableText } from "@portabletext/react";
-import ContactForm from "./contactForm";
+import ContactForm from "../components/contactForm";
 
 export default function Contact({ copy }) {
   return (
-    <section className="relative flex flex-col items-center justify-center min-h-screen px-5 py-4 mx-auto text-black md:w-1/2 snap-start">
-      <div className="grid grid-cols-1 gap-3">
+    <section className="relative bg-texture flex flex-col items-center justify-center min-h-screen px-5 py-4 md:p-0 text-black md:w-full">
+      <div className="grid grid-cols-1 gap-3 mx-auto max-w-xl">
         <h2 className="text-xl text-center md:text-2xl font-pacifico">
           {copy.contactTitle}
         </h2>

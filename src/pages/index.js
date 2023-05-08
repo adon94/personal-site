@@ -1,10 +1,10 @@
-import { useRef } from "react";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import { createClient } from "next-sanity";
-import Intro from "../components/intro";
-import WhatDo from "../components/whatDo";
-import Contact from "../components/contact";
+import Intro from "../sections/intro";
+import WhatDo from "../sections/whatDo";
+import Portfolio from "../sections/portfolio";
+import Contact from "../sections/contact";
 import Footer from "../components/footer";
 import AnimatedHero from "../components/motion/animatedHero";
 
@@ -16,7 +16,6 @@ const ScrollAnimations = dynamic(
 );
 
 export default function Home({ copy, meta }) {
-  const scrollElement = useRef();
   return (
     <>
       <Head>
@@ -27,16 +26,14 @@ export default function Home({ copy, meta }) {
         <link rel="preconnect" href="https://www.googletagmanager.com" />
       </Head>
 
-      <main
-        ref={scrollElement}
-        className="relative h-full overflow-scroll overflow-x-hidden bg-texture snap-mandatory snap-y"
-      >
+      <main className="min-h-screen bg-texture">
         <Intro>
-          <ScrollAnimations copy={copy} scrollElement={scrollElement}>
+          <ScrollAnimations copy={copy}>
             <AnimatedHero copy={copy} />
           </ScrollAnimations>
         </Intro>
         <WhatDo copy={copy} />
+        <Portfolio />
         <Contact copy={copy} />
         <Footer />
       </main>

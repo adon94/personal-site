@@ -5,9 +5,15 @@ export default function Intro({ children }) {
   const pageReady = usePageReady();
 
   return (
-    <>
+    <section className="h-screen sticky inset-0">
       <div
-        className="flex items-center justify-center w-screen h-screen transition-all snap-start"
+        className="w-screen transition-all h-fill snap-start"
+        style={{ opacity: pageReady ? 1 : 0 }}
+      >
+        {children}
+      </div>
+      <div
+        className="absolute top-0 left-0 flex items-center justify-center w-screen h-screen transition-all snap-start"
         style={{ opacity: pageReady ? 0 : 1 }}
       >
         <Image
@@ -18,12 +24,6 @@ export default function Intro({ children }) {
           priority
         />
       </div>
-      <section
-        className="absolute left-0 top-0 w-screen transition-all h-fill snap-start"
-        style={{ opacity: pageReady ? 1 : 0 }}
-      >
-        {children}
-      </section>
-    </>
+    </section>
   );
 }
