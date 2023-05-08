@@ -9,14 +9,9 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  background: #ffe9cc;
+  background: #ffeed9;
   cursor: url("../../public/cursor.svg") 16 16, default;
-}
-
-html,
-body,
-#__next {
-  height: 100%;
+  overscroll-behavior: none;
 }
 
 input,
@@ -24,6 +19,7 @@ textarea {
   cursor: url("../../public/cursor-text.svg") 16 16, text;
 }
 
+.cursor-go,
 button,
 a {
   cursor: url("../../public/cursor-pointer.svg") 16 16, pointer;
@@ -45,8 +41,6 @@ a {
 .animate-me {
   text-transform: uppercase;
   margin: 0;
-  letter-spacing: 16px;
-  transform: translateX(9px);
 }
 
 /* for xs screens with browser toolbars */
@@ -64,6 +58,8 @@ a {
   position: relative;
   z-index: 1;
   text-align: center;
+  padding-left: 6px;
+  padding-right: 6px;
 }
 
 .animate-me span::before {
@@ -72,22 +68,20 @@ a {
   background-color: black;
   z-index: -1;
   top: 0;
-  left: -9px;
-  width: 29px;
-  height: 29px;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 @media (min-width: 768px) {
-  .animate-me {
-    letter-spacing: 16px;
-    transform: translateX(5px);
+  .animate-me span {
+    padding-left: 8px;
+    padding-right: 8px;
   }
-  .animate-me span::before {
-    top: -2px;
-    left: -12px;
-    width: 35px;
-    height: 35px;
-  }
+}
+
+.bg-default {
+  background-color: #ffeed9;
 }
 
 .bg-texture {
