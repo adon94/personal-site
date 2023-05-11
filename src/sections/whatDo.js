@@ -5,7 +5,9 @@ import {
   useTransform,
   AnimatePresence,
 } from "framer-motion";
-import Flowers from "../components/motion/flowers";
+import dynamic from "next/dynamic";
+
+const Flowers = dynamic(() => import("@/components/motion/flowers"));
 
 export default function WhatDo({ copy }) {
   const { scrollYProgress } = useScroll({

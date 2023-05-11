@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import Letterize from "letterizejs";
 import anime from "animejs/lib/anime.es.js";
 import { useInView } from "framer-motion";
-import { usePageReady } from "../../utils";
+import { usePageReady } from "@/utils/index";
 
 export default function AnimatedHero({ copy }) {
   const animation = useRef();
