@@ -6,6 +6,7 @@ import {
   AnimatePresence,
 } from "framer-motion";
 import { PortableText } from "@portabletext/react";
+import AnimatedHero from "./animatedHero";
 
 export default function ScrollAnimations({ children, copy }) {
   const containerRef = useRef(null);
@@ -36,7 +37,6 @@ export default function ScrollAnimations({ children, copy }) {
                 translateX: 0,
               },
             }}
-            transition={{ delay: 0.8 }}
             className="self-start text-5xl md:text-6xl font-pacifico"
           >
             <PortableText value={copy.introTopLeft} />
@@ -56,7 +56,7 @@ export default function ScrollAnimations({ children, copy }) {
               }}
               transition={{ delay: 0.8, duration: 1 }}
             >
-              {children}
+              <AnimatedHero copy={copy} />
             </motion.div>
           </div>
           <motion.h1
@@ -71,7 +71,6 @@ export default function ScrollAnimations({ children, copy }) {
                 translateX: 0,
               },
             }}
-            transition={{ delay: 0.8 }}
             className="self-end text-5xl text-right md:text-6xl font-pacifico"
           >
             <PortableText value={copy.introBottomRight} />

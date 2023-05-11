@@ -1,7 +1,8 @@
 import Image from "next/image";
-import { usePageReady } from "../utils";
+import { usePageReady } from "@/utils/index";
+import ScrollAnimations from "@/components/motion/scrollAnimations";
 
-export default function Intro({ children }) {
+export default function Intro({ copy }) {
   const pageReady = usePageReady();
 
   return (
@@ -10,7 +11,7 @@ export default function Intro({ children }) {
         className="w-screen transition-all h-fill snap-start"
         style={{ opacity: pageReady ? 1 : 0 }}
       >
-        {children}
+        <ScrollAnimations copy={copy} />
       </div>
       <div
         className="absolute top-0 left-0 flex items-center justify-center w-screen h-screen transition-all snap-start"

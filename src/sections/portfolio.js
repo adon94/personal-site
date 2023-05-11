@@ -1,4 +1,3 @@
-import { useRef } from "react";
 import Image from "next/image";
 import {
   motion,
@@ -6,8 +5,8 @@ import {
   useTransform,
   AnimatePresence,
 } from "framer-motion";
-import StyledLink from "../components/styledLink";
-import { useDimensions, useIsMobile } from "../utils";
+import StyledLink from "@/components/styledLink";
+import { useDimensions, useIsMobile } from "@/utils/index";
 import { urlFor } from "@/utils/sanity";
 
 function useParallax(value, distance) {
@@ -41,7 +40,6 @@ function ProjectPhoto({ image, alt }) {
 }
 
 export default function Portfolio({ projects }) {
-  const targetRef = useRef(null);
   const { width, height } = useDimensions();
   const isMobile = useIsMobile();
   const half = isMobile ? height / 2 : width / 2;
@@ -103,7 +101,7 @@ export default function Portfolio({ projects }) {
           </motion.div>
         </motion.div>
       </section>
-      <div ref={targetRef} className="h-screen" />
+      <div className="h-screen" />
     </AnimatePresence>
   );
 }

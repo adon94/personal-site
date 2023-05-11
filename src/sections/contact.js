@@ -1,5 +1,5 @@
 import { PortableText } from "@portabletext/react";
-import ContactForm from "../components/contactForm";
+import ContactForm from "@/components/contactForm";
 
 export default function Contact({ copy }) {
   return (

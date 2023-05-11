@@ -1,20 +1,11 @@
-import dynamic from "next/dynamic";
 import Head from "next/head";
-import Intro from "../sections/intro";
-import WhatDo from "../sections/whatDo";
-import Portfolio from "../sections/portfolio";
-import Contact from "../sections/contact";
-import Footer from "../components/footer";
-import AnimatedHero from "../components/motion/animatedHero";
+import Intro from "@/sections/intro";
+import WhatDo from "@/sections/whatDo";
+import Portfolio from "@/sections/portfolio";
+import Contact from "@/sections/contact";
+import Footer from "@/components/footer";
 
 import { getCopy, getMeta, getProjects } from "@/utils/sanity";
-
-const ScrollAnimations = dynamic(
-  () => import("../components/motion/scrollAnimations"),
-  {
-    ssr: false,
-  }
-);
 
 export default function Home({ copy, meta, projects }) {
   return (
@@ -28,11 +19,7 @@ export default function Home({ copy, meta, projects }) {
       </Head>
 
       <main className="min-h-screen bg-texture">
-        <Intro>
-          <ScrollAnimations copy={copy.value}>
-            <AnimatedHero copy={copy.value} />
-          </ScrollAnimations>
-        </Intro>
+        <Intro copy={copy.value} />
         <WhatDo copy={copy.value} />
         <Portfolio projects={projects} />
         <Contact copy={copy.value} />
