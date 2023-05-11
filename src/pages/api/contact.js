@@ -3,7 +3,6 @@ import { ServerClient } from "postmark";
 export default async function Contact(req, res) {
   const apiKey = process.env.POSTMARK_API;
   const client = new ServerClient(apiKey);
-  console.log(req.body);
   await client.sendEmail(
     {
       From: "hello@adamcodes.io",

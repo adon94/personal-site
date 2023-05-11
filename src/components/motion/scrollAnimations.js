@@ -76,9 +76,9 @@ export default function ScrollAnimations({ children, copy }) {
           >
             <PortableText value={copy.introBottomRight} />
           </motion.h1>
-          <motion.div className="absolute bottom-8 left-8 md:-translate-x-1/2 md:left-1/2">
+          <div className="absolute bottom-8 left-8 md:-translate-x-1/2 md:left-1/2">
             <p className="text-6xl md:text-3xl animate-bounce">↓</p>
-          </motion.div>
+          </div>
         </motion.div>
       </div>
     </AnimatePresence>
